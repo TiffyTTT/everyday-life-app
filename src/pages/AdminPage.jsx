@@ -56,7 +56,7 @@ function BroadcastModal({ onClose, onSuccess, students }) {
       {/* Sheet */}
       <div className="relative w-full max-w-lg bg-brand-surface border border-brand-border rounded-2xl p-6 space-y-4 z-10 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-2">
-          <h2 className="text-white font-bold text-lg">📢 Broadcast งาน</h2>
+          <h2 className="text-brand-text font-bold text-lg">📢 Broadcast งาน</h2>
           <button onClick={onClose} className="p-1.5 rounded-xl bg-brand-bg">
             <X size={16} className="text-brand-dim" />
           </button>
@@ -70,7 +70,7 @@ function BroadcastModal({ onClose, onSuccess, students }) {
             placeholder="เช่น ส่งรายงานวิทย์"
             value={title}
             onChange={e => setTitle(e.target.value)}
-            className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none placeholder:text-brand-border"
+            className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none placeholder:text-brand-border"
           />
         </div>
 
@@ -82,7 +82,7 @@ function BroadcastModal({ onClose, onSuccess, students }) {
             value={description}
             onChange={e => setDescription(e.target.value)}
             rows={2}
-            className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none placeholder:text-brand-border resize-none"
+            className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none placeholder:text-brand-border resize-none"
           />
         </div>
 
@@ -93,7 +93,7 @@ function BroadcastModal({ onClose, onSuccess, students }) {
             type="datetime-local"
             value={dueDate}
             onChange={e => setDueDate(e.target.value)}
-            className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none"
+            className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none"
           />
         </div>
 
@@ -103,7 +103,7 @@ function BroadcastModal({ onClose, onSuccess, students }) {
           <select
             value={assignTo}
             onChange={e => setAssignTo(e.target.value)}
-            className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none"
+            className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none"
           >
             <option value="all">👥 ทุกคนในกลุ่ม</option>
             {students.map(s => (
@@ -118,7 +118,7 @@ function BroadcastModal({ onClose, onSuccess, students }) {
         <button
           onClick={handleSubmit}
           disabled={loading}
-          className="w-full bg-brand-accent text-brand-bg font-semibold py-3 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-transform disabled:opacity-60"
+          className="w-full bg-brand-accent text-brand-text font-semibold py-3 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-transform disabled:opacity-60"
         >
           {loading
             ? <Loader2 size={18} className="animate-spin" />
@@ -138,13 +138,13 @@ function StudentCard({ student, tasks }) {
   const total      = tasks.length
 
   return (
-    <div className="bg-brand-surface border border-brand-border rounded-2xl p-4">
+    <div className="bg-white border border-brand-border rounded-2xl p-4 shadow-card hover:shadow-card-hover transition-all duration-200 glow-purple">
       <div className="flex items-center justify-between mb-3">
         <div>
-          <p className="text-white font-semibold text-sm">
+          <p className="text-brand-text font-semibold text-sm">
             {student.display_name || student.email?.split('@')[0]}
           </p>
-          <p className="text-brand-border text-xs">{student.email}</p>
+          <p className="text-brand-dim text-xs">{student.email}</p>
         </div>
         <span className="text-xs bg-brand-bg border border-brand-border px-2 py-1 rounded-lg text-brand-dim">
           {total} งาน
@@ -160,7 +160,7 @@ function StudentCard({ student, tasks }) {
               style={{ width: `${(done / total) * 100}%` }}
             />
           </div>
-          <p className="text-brand-border text-xs mt-1">
+          <p className="text-brand-dim text-xs mt-1">
             เสร็จ {done}/{total}
           </p>
         </div>
@@ -168,7 +168,7 @@ function StudentCard({ student, tasks }) {
 
       {/* Status Chips */}
       <div className="flex gap-2">
-        <span className="flex items-center gap-1 text-xs bg-brand-bg px-2 py-1 rounded-lg text-brand-border">
+        <span className="flex items-center gap-1 text-xs bg-brand-bg px-2 py-1 rounded-lg text-brand-dim">
           <Circle size={10} /> {todo} รอ
         </span>
         <span className="flex items-center gap-1 text-xs bg-yellow-500/10 px-2 py-1 rounded-lg text-yellow-400">
@@ -231,25 +231,25 @@ export default function AdminPage() {
   return (
     <Layout>
       {/* Header */}
-      <div className="px-5 pt-14 pb-6">
-        <h1 className="text-white text-2xl font-bold">👑 Admin Dashboard</h1>
+      <div className="px-5 pt-14 pb-6 animate-fade-up">
+        <h1 className="text-brand-text text-2xl font-bold">👑 Admin Dashboard</h1>
         <p className="text-brand-dim text-sm mt-1">สอดส่องลูกน้อง</p>
       </div>
 
       {/* Summary Cards */}
-      <div className="px-5 mb-6">
+      <div className="px-5 mb-6 animate-fade-up delay-100">
         <div className="grid grid-cols-3 gap-3">
-          <div className="bg-brand-surface border border-brand-border rounded-2xl p-3 text-center">
-            <p className="text-white text-xl font-bold">{students.length}</p>
-            <p className="text-brand-border text-xs mt-0.5">สมาชิก</p>
+          <div className="bg-brand-surface border border-brand-border rounded-2xl p-3 text-center glow-sage shadow-card">
+            <p className="text-brand-text text-xl font-bold">{students.length}</p>
+            <p className="text-brand-sage text-xs mt-0.5">สมาชิก</p>
           </div>
-          <div className="bg-brand-surface border border-brand-border rounded-2xl p-3 text-center">
-            <p className="text-white text-xl font-bold">{totalTasks}</p>
-            <p className="text-brand-border text-xs mt-0.5">งานทั้งหมด</p>
+          <div className="bg-brand-surface border border-brand-border rounded-2xl p-3 text-center glow-purple shadow-card">
+            <p className="text-brand-text text-xl font-bold">{totalTasks}</p>
+            <p className="text-brand-purple text-xs mt-0.5">งานทั้งหมด</p>
           </div>
-          <div className="bg-brand-surface border border-brand-border rounded-2xl p-3 text-center">
+          <div className="bg-brand-surface border border-brand-border rounded-2xl p-3 text-center glow-purple shadow-card">
             <p className="text-brand-accent text-xl font-bold">{totalDone}</p>
-            <p className="text-brand-border text-xs mt-0.5">เสร็จแล้ว</p>
+            <p className="text-brand-sage text-xs mt-0.5">เสร็จแล้ว</p>
           </div>
         </div>
       </div>
@@ -258,7 +258,7 @@ export default function AdminPage() {
       <div className="px-5 mb-6">
         <button
           onClick={() => setShowModal(true)}
-          className="w-full bg-brand-accent text-brand-bg font-semibold py-3.5 rounded-2xl flex items-center justify-center gap-2 active:scale-95 transition-transform"
+          className="w-full bg-brand-sage text-white font-semibold py-3.5 rounded-2xl flex items-center justify-center gap-2 active:scale-95 transition-all shadow-button hover:shadow-button hover:-translate-y-0.5 animate-fade-up delay-150"
         >
           <Plus size={20} />
           Broadcast งานใหม่
@@ -269,7 +269,7 @@ export default function AdminPage() {
       <div className="px-5">
         <div className="flex items-center gap-2 mb-3">
           <Users size={16} className="text-brand-dim" />
-          <h2 className="text-white font-semibold">รายชื่อสมาชิก</h2>
+          <h2 className="text-brand-text font-semibold">รายชื่อสมาชิก</h2>
         </div>
 
         {loading ? (
@@ -282,7 +282,7 @@ export default function AdminPage() {
             <p className="text-brand-dim text-sm">ยังไม่มีสมาชิกในระบบ</p>
           </div>
         ) : (
-          <div className="space-y-3">
+          <div className="space-y-3 animate-fade-up delay-200">
             {students.map(student => (
               <StudentCard
                 key={student.id}

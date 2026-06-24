@@ -50,38 +50,38 @@ const EditClassModal = ({ classItem, onClose, onSuccess }) => {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative w-full max-w-lg bg-brand-surface border border-brand-border rounded-2xl p-6 space-y-4 z-10 max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-lg bg-white border border-brand-border rounded-2xl p-6 space-y-4 z-10 max-h-[90vh] overflow-y-auto shadow-modal animate-scale-in">
         <div className="flex items-center justify-between mb-2">
-          <h2 className="text-white font-bold text-lg">✏️ แก้ไขคาบเรียน</h2>
+          <h2 className="text-brand-text font-bold text-lg">✏️ แก้ไขคาบเรียน</h2>
           <button onClick={onClose} className="p-1.5 rounded-xl bg-brand-bg">
             <X size={16} className="text-brand-dim" />
           </button>
         </div>
         <div>
           <label className="text-xs text-brand-dim font-medium">ชื่อวิชา *</label>
-          <input type="text" value={subject} onChange={e => setSubject(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none" />
+          <input type="text" value={subject} onChange={e => setSubject(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none" />
         </div>
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="text-xs text-brand-dim font-medium">ห้องเรียน</label>
-            <input type="text" value={room} onChange={e => setRoom(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none" />
+            <input type="text" value={room} onChange={e => setRoom(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none" />
           </div>
           <div>
             <label className="text-xs text-brand-dim font-medium">ครูผู้สอน</label>
-            <input type="text" value={teacher} onChange={e => setTeacher(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none" />
+            <input type="text" value={teacher} onChange={e => setTeacher(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none" />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="text-xs text-brand-dim font-medium">เวลาเริ่ม</label>
-            <input type="time" value={startTime} onChange={e => setStartTime(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none" />
+            <input type="time" value={startTime} onChange={e => setStartTime(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none" />
           </div>
           <div>
             <label className="text-xs text-brand-dim font-medium">เวลาเลิก</label>
-            <input type="time" value={endTime} onChange={e => setEndTime(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none" />
+            <input type="time" value={endTime} onChange={e => setEndTime(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none" />
           </div>
         </div>
-        <button onClick={handleUpdate} disabled={loading} className="w-full bg-brand-accent text-brand-bg font-semibold py-3 rounded-xl flex justify-center">
+        <button onClick={handleUpdate} disabled={loading} className="w-full bg-brand-accent text-brand-text font-semibold py-3 rounded-xl flex justify-center">
           {loading ? <Loader2 size={18} className="animate-spin" /> : 'บันทึกการแก้ไข'}
         </button>
       </div>
@@ -112,30 +112,30 @@ const AddClassModal = ({ day, onClose, onSuccess }) => {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative w-full max-w-lg bg-brand-surface border border-brand-border rounded-2xl p-6 space-y-4 z-10 max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-lg bg-white border border-brand-border rounded-2xl p-6 space-y-4 z-10 max-h-[90vh] overflow-y-auto shadow-modal animate-scale-in">
         <div className="flex items-center justify-between mb-2">
-          <h2 className="text-white font-bold text-lg">🏫 เพิ่มวิชาเรียน ({DAYS.find(d => d.key === day)?.label})</h2>
+          <h2 className="text-brand-text font-bold text-lg">🏫 เพิ่มวิชาเรียน ({DAYS.find(d => d.key === day)?.label})</h2>
           <button onClick={onClose} className="p-1.5 rounded-xl bg-brand-bg"><X size={16} className="text-brand-dim" /></button>
         </div>
         <div>
           <label className="text-xs text-brand-dim font-medium">ชื่อวิชา *</label>
-          <input type="text" value={subject} onChange={e => setSubject(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none" />
+          <input type="text" value={subject} onChange={e => setSubject(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none" />
         </div>
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="text-xs text-brand-dim font-medium">ห้องเรียน</label>
-            <input type="text" value={room} onChange={e => setRoom(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none" />
+            <input type="text" value={room} onChange={e => setRoom(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none" />
           </div>
           <div>
             <label className="text-xs text-brand-dim font-medium">ชื่อครู</label>
-            <input type="text" value={teacher} onChange={e => setTeacher(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none" />
+            <input type="text" value={teacher} onChange={e => setTeacher(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none" />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-3">
-          <div><label className="text-xs text-brand-dim font-medium">เวลาเริ่ม</label><input type="time" value={startTime} onChange={e => setStartTime(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none" /></div>
-          <div><label className="text-xs text-brand-dim font-medium">เวลาเลิก</label><input type="time" value={endTime} onChange={e => setEndTime(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-white text-sm outline-none" /></div>
+          <div><label className="text-xs text-brand-dim font-medium">เวลาเริ่ม</label><input type="time" value={startTime} onChange={e => setStartTime(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none" /></div>
+          <div><label className="text-xs text-brand-dim font-medium">เวลาเลิก</label><input type="time" value={endTime} onChange={e => setEndTime(e.target.value)} className="w-full mt-1 bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text text-sm outline-none" /></div>
         </div>
-        <button onClick={handleCreate} className="w-full bg-brand-accent text-brand-bg font-semibold py-3 rounded-xl">บันทึกเข้าตาราง</button>
+        <button onClick={handleCreate} className="w-full bg-brand-accent text-brand-text font-semibold py-3 rounded-xl">บันทึกเข้าตาราง</button>
       </div>
     </div>
   )
@@ -173,30 +173,30 @@ export default function SchedulePage() {
 
   return (
     <Layout>
-      <div className="px-5 pt-14 pb-4 flex items-center justify-between">
-        <div><h1 className="text-white text-2xl font-bold">📅 ตารางเรียนรวม</h1><p className="text-brand-dim text-sm mt-1">วันนี้เรียนอะไรบ้าง</p></div>
-        {isAdmin && <button onClick={() => setShowAddModal(true)} className="p-3 bg-brand-accent text-brand-bg rounded-xl font-bold flex items-center gap-1 text-sm"><Plus size={16} /> เพิ่มคาบ</button>}
+      <div className="px-5 pt-14 pb-4 flex items-center justify-between animate-fade-up">
+        <div><h1 className="text-brand-text text-2xl font-bold">📅 ตารางเรียนรวม</h1><p className="text-brand-dim text-sm mt-1">วันนี้เรียนอะไรบ้าง</p></div>
+        {isAdmin && <button onClick={() => setShowAddModal(true)} className="p-3 bg-brand-sage text-white rounded-xl font-bold flex items-center gap-1 text-sm shadow-button hover:shadow-button hover:-translate-y-0.5 transition-all active:scale-95 animate-fade-in delay-100"><Plus size={16} /> เพิ่มคาบ</button>}
       </div>
 
-      <div className="px-5 mb-5">
-        <div className="flex bg-brand-surface border border-brand-border rounded-2xl p-1.5 justify-between gap-1">
+      <div className="px-5 mb-5 animate-fade-up delay-150">
+        <div className="flex bg-white border border-brand-border rounded-2xl p-1.5 justify-between gap-1 shadow-card">
           {DAYS.map(d => (
-            <button key={d.key} onClick={() => setSelectedDay(d.key)} className={`flex-1 py-2.5 rounded-xl text-center text-xs font-semibold transition-all ${selectedDay === d.key ? 'bg-brand-accent text-brand-bg font-bold scale-105 shadow-md' : 'text-brand-dim'}`}>{d.label}</button>
+            <button key={d.key} onClick={() => setSelectedDay(d.key)} className={`flex-1 py-2.5 rounded-xl text-center text-xs font-semibold transition-all ${selectedDay === d.key ? 'bg-brand-accent text-brand-text font-bold scale-105 shadow-md' : 'text-brand-dim'}`}>{d.label}</button>
           ))}
         </div>
       </div>
 
-      <div className="px-5 space-y-3 pb-6">
+      <div className="px-5 space-y-3 pb-6 animate-fade-up delay-200">
         {loading ? <div className="flex justify-center py-20"><Loader2 size={32} className="text-brand-accent animate-spin" /></div>
-        : todaysClasses.length === 0 ? <div className="bg-brand-surface border border-brand-border rounded-2xl p-10 text-center"><p className="text-4xl mb-2">🎉</p><p className="text-brand-dim text-sm">ไม่มีเรียน หรือแอดมินยังไม่ลงตาราง</p></div>
-        : todaysClasses.map(c => (
-          <div key={c.id} className="bg-brand-surface border border-brand-border rounded-2xl p-4 relative overflow-hidden flex items-start gap-4">
+        : todaysClasses.length === 0 ? <div className="bg-white border border-brand-border rounded-2xl p-10 text-center shadow-card"><p className="text-4xl mb-2">🎉</p><p className="text-brand-dim text-sm">ไม่มีเรียน หรือแอดมินยังไม่ลงตาราง</p></div>
+        : todaysClasses.map((c, i) => (
+          <div key={c.id} className={`bg-white border border-brand-border rounded-2xl p-4 relative overflow-hidden flex items-start gap-4 shadow-card hover:shadow-card-hover transition-all duration-200 animate-slide-right glow-sage ${i === 0 ? 'delay-200' : i === 1 ? 'delay-250' : 'delay-300'}`}>
             <div className={`absolute top-0 bottom-0 left-0 w-1.5 ${DAYS.find(d => d.key === selectedDay)?.color.split(' ')[0]}`} />
             <div className="flex flex-col items-center justify-center bg-brand-bg border border-brand-border rounded-xl px-2.5 py-2 min-w-[70px]">
-              <Clock size={12} className="text-brand-dim mb-1" /><span className="text-white font-bold text-xs">{c.start_time}</span><span className="text-brand-border text-[10px]">{c.end_time}</span>
+              <Clock size={12} className="text-brand-dim mb-1" /><span className="text-brand-text font-bold text-xs">{c.start_time}</span><span className="text-brand-dim text-[10px]">{c.end_time}</span>
             </div>
             <div className="flex-1">
-              <h3 className="text-white font-semibold text-sm flex items-center gap-1.5"><BookOpen size={14} className="text-brand-accent" />{c.subject_name}</h3>
+              <h3 className="text-brand-text font-semibold text-sm flex items-center gap-1.5"><BookOpen size={14} className="text-brand-accent" />{c.subject_name}</h3>
               <div className="flex flex-wrap gap-x-3 text-[11px] text-brand-dim">
                 {c.room_number && <span className="flex items-center gap-1"><MapPin size={10} />ห้อง {c.room_number}</span>}
                 {c.teacher_name && <span className="flex items-center gap-1"><User size={10} />{c.teacher_name}</span>}

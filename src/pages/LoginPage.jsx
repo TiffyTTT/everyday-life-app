@@ -49,12 +49,12 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-brand-bg flex flex-col items-center justify-center px-6">
-      
+    <div className="min-h-screen bg-brand-bg flex flex-col items-center justify-center px-6 animate-fade-in">
+
       {/* Logo / Header */}
-      <div className="mb-10 text-center">
+      <div className="mb-10 text-center animate-fade-up">
         <div className="text-5xl mb-3">🏫</div>
-        <h1 className="text-2xl font-bold text-white tracking-tight">
+        <h1 className="text-2xl font-bold text-brand-text tracking-tight">
           Everyday Life
         </h1>
         <p className="text-brand-dim text-sm mt-1">
@@ -63,7 +63,7 @@ export default function LoginPage() {
       </div>
 
       {/* Card */}
-      <div className="w-full max-w-sm bg-brand-surface border border-brand-border rounded-2xl p-6 space-y-4">
+      <div className="w-full max-w-sm bg-brand-surface border border-brand-border rounded-2xl p-6 space-y-4 shadow-modal animate-scale-in delay-100">
 
         {/* Tab Toggle */}
         <div className="flex bg-brand-bg rounded-xl p-1">
@@ -71,7 +71,7 @@ export default function LoginPage() {
             onClick={() => setMode('login')}
             className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${
               mode === 'login'
-                ? 'bg-brand-accent text-brand-bg'
+                ? 'bg-brand-accent text-brand-text'
                 : 'text-brand-dim'
             }`}
           >
@@ -81,7 +81,7 @@ export default function LoginPage() {
             onClick={() => setMode('register')}
             className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${
               mode === 'register'
-                ? 'bg-brand-accent text-brand-bg'
+                ? 'bg-brand-accent text-brand-text'
                 : 'text-brand-dim'
             }`}
           >
@@ -100,7 +100,7 @@ export default function LoginPage() {
                 placeholder="ชื่อเล่น / ชื่อจริง"
                 value={displayName}
                 onChange={e => setDisplayName(e.target.value)}
-                className="bg-transparent flex-1 text-white text-sm outline-none placeholder:text-brand-border"
+                className="bg-transparent flex-1 text-brand-text text-sm outline-none placeholder:text-brand-dim"
               />
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function LoginPage() {
               placeholder="your@email.com"
               value={email}
               onChange={e => setEmail(e.target.value)}
-              className="bg-transparent flex-1 text-white text-sm outline-none placeholder:text-brand-border"
+              className="bg-transparent flex-1 text-brand-text text-sm outline-none placeholder:text-brand-dim"
               autoComplete="email"
             />
           </div>
@@ -133,7 +133,7 @@ export default function LoginPage() {
               value={password}
               onChange={e => setPassword(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && handleSubmit()}
-              className="bg-transparent flex-1 text-white text-sm outline-none placeholder:text-brand-border"
+              className="bg-transparent flex-1 text-brand-text text-sm outline-none placeholder:text-brand-dim"
               autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
             />
             <button
@@ -149,7 +149,7 @@ export default function LoginPage() {
         <button
           onClick={handleSubmit}
           disabled={loading}
-          className="w-full bg-brand-accent text-brand-bg font-semibold py-3 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-transform disabled:opacity-60"
+          className="w-full bg-brand-accent text-brand-text font-semibold py-3 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-transform disabled:opacity-60"
         >
           {loading
             ? <Loader2 size={18} className="animate-spin" />
@@ -160,7 +160,7 @@ export default function LoginPage() {
       </div>
 
       {/* Footer note */}
-      <p className="mt-6 text-xs text-brand-border text-center">
+      <p className="mt-6 text-xs text-brand-dim text-center">
         สมัครแล้วได้สิทธิ์ Student โดย default<br/>
         ติดต่อแอดมินเพื่ออัปเกรด Role
       </p>
