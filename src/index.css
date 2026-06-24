@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Safe area สำหรับ notch iPhone */
+@layer base {
+  :root {
+    --sat: env(safe-area-inset-top);
+    --sab: env(safe-area-inset-bottom);
+    --sal: env(safe-area-inset-left);
+    --sar: env(safe-area-inset-right);
+  }
+
+  html, body, #root {
+    height: 100%;
+    overscroll-behavior: none;       /* ป้องกัน pull-to-refresh เด้ง */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-brand-bg text-white font-sans;
+    padding-top: var(--sat);
+    padding-bottom: var(--sab);
+  }
+}
+
+/* Scrollbar มืด สำหรับ desktop preview */
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  
+  .pb-safe {
+    padding-bottom: calc(var(--sab) + 4rem); /* 4rem = bottom nav height */
+  }
+}
